@@ -1,0 +1,13 @@
+#load {
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    font-size: 13px;
+}
+
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
