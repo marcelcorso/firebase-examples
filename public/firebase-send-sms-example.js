@@ -94,7 +94,7 @@ function onVerifyCodeClick(e) {
 function onSendFact() {
     // to send a fact to a user just add it to a collection. the plugin will send the message
     const randomFact = facts[Math.floor(Math.random() * facts.length)];
-    db.collection("messages").add({
+    db.collection("sms").add({
         originator: "FunFacts",
         body: randomFact,
         recipients: [
