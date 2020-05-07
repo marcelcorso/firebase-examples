@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Firebase Send SMS Example</title>
+    <title>Firebase MessageBird Extensions Example</title>
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/7.14.1/firebase-app.js"></script>
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<h1>Firebase Send SMS Example</h1>
+<h1>Firebase MessageBird Extensions Example</h1>
 
 <section class="active">
     <a id="sign-in-button" href="#">sign in</a>
@@ -46,11 +46,40 @@
     <a id="lets-start" href="#">let's start</a>
 </section>
 
+<section id="choose-your-destiny">
+    What extension do you want to test?
+    <br /><br />
+    <a id="sms-extension" href="#">SMS extension</a><br />
+    <a id="msg-extension" href="#">Omnichannel extension</a>
+</section>
+
 <section id="facts">
+    <a id="go-back-1" href="#"><- Go back</a><br />
     We got some fun facts to send you by sms. Want some?
 
-    <a id="send-fact" href="#">yes! get me some.</a>
+    <a id="send-sms-fact" href="#">yes! get me some.</a>
 </section>
+
+<section id="conversations">
+    <a id="go-back-2" href="#"><- Go back</a>
+    <h4>We need some more details from you to be able to send a message for you.</h4>
+
+    <label for="channelId">what is the channel id that you want to send messsage to?</label><br />
+    <input id="channelId" type="text" required placeholder="5g372jd642g3gh4fhbc3"/><br />
+    <br />
+    <label for="recipient">who is the recipient of the message</label><br />
+    <input id="recipient" type="text" required placeholder="this could be phone or something else depending on chosen channel" /><br />
+    <br />
+    <button type="submit" id="send-msg-fact">Send it!</button>
+    <br />
+</section>
+
+<div id="delivery-result">
+    <h4>Delivery Result:</h4>
+    <pre id="result-output"></pre><br />
+    <h4>Status change history:</h4>
+    <textarea id="result-history"></textarea>
+</div>
 
 </body>
 </html>
