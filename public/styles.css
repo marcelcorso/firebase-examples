@@ -8,6 +8,21 @@ section {
     display: none;
 }
 
-section.active {
+section.active,
+#delivery-result.active {
     display: block;
+}
+
+#delivery-result {
+    display: none;
+    color: blue;
+    background: lightgray;
+    padding: 10px;
+    margin: 10px 0;
+    white-space: pre-wrap;
+}
+
+textarea {
+    width: 100%;
+    height: 300px;
 }
