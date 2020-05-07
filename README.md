@@ -1,1 +1,1 @@
-# firestore-send-sms-example
+# firebase-examples
