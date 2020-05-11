@@ -47,21 +47,8 @@ function init() {
     document.getElementById("send-code").addEventListener("click", onSendCodeClick);
     document.getElementById("verify-code").addEventListener("click", onVerifyCodeClick);
     document.getElementById("lets-start").addEventListener("click", () => {
-        showSection("choose-your-destiny");
-    });
-    document.getElementById("sms-extension").addEventListener("click", () => {
-        showSection("facts");
-    });
-    document.getElementById("msg-extension").addEventListener("click", () => {
         showSection("conversations");
     });
-    document.getElementById("go-back-1").addEventListener("click", () => {
-        showSection("choose-your-destiny");
-    });
-    document.getElementById("go-back-2").addEventListener("click", () => {
-        showSection("choose-your-destiny");
-    });
-    document.getElementById("send-sms-fact").addEventListener("click", onSendFactSms);
     document.getElementById("send-msg-fact").addEventListener("click", onSendConversationFact);
 }
 
@@ -102,27 +89,6 @@ function onVerifyCodeClick(e) {
         // User couldn't sign in (bad verification code?)
         console.error(error);
     });
-}
-
-function onSendFactSms() {
-    // to send a fact to a user just add it to a collection. the plugin will send the message
-    const randomFact = facts[Math.floor(Math.random() * facts.length)];
-    db.collection("sms").add({
-        originator: "FunFacts",
-        body: randomFact,
-        recipients: [
-            window.user.phoneNumber,
-        ],
-    })
-        .then(function (docRef) {
-            console.log("Document written with ID: ", docRef.id);
-            reportStatus(docRef)
-        })
-        .catch(function (error) {
-            console.error("Error adding document: ", error);
-        });
-
-    document.getElementById("send-sms-fact").innerText = labels[Math.floor(Math.random() * labels.length)];
 }
 
 function onSendConversationFact() {
